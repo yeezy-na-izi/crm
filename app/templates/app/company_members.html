@@ -1,0 +1,29 @@
+{% extends "app/main.html" %}
+
+{% block content %}
+    <div class="col s12 l9">
+        <a class="btn" href="{% url 'company_members_add' %}">Добавить пользователя</a>
+        <div class="card">
+            <div class="card-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ФИО</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for member in members %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'company_members_profile' member.id %}">
+                                    {{ member.get_full_name }}
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

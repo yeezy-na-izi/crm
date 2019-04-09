@@ -1,0 +1,51 @@
+{% extends "app/main.html" %}
+
+{% block content %}
+    <div class="col s12 l9">
+        <div class="card">
+            <form action="{% url 'learning_groups_add_schedule' %}" method="post">
+                {% csrf_token %}
+                <div class="card-content">
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            {{ form.group }}
+                            {{ form.group.label_tag }}
+                            {{ form.group.errors }}
+                        </div>
+                        <div class="input-field col s12 m6">
+                            {{ form.teachers }}
+                            {{ form.teachers.label_tag }}
+                            {{ form.teachers.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input type="text" name="time"
+                                   required id="{{ form.time.id_for_label }}"
+                                    class="timepicker">
+                            {{ form.time.label_tag }}
+                            {{ form.time.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input type="text" name="start_date"
+                                   required id="{{ form.start_date.id_for_label }}"
+                                    class="datepicker">
+                            {{ form.start_date.label_tag }}
+                            {{ form.start_date.errors }}
+                        </div>
+                        <div class="input-field col s12 m6">
+                            {{ form.count }}
+                            {{ form.count.label_tag }}
+                            {{ form.count.errors }}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <button class="btn" type="submit">Добавить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

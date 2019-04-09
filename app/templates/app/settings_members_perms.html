@@ -1,0 +1,47 @@
+{% extends "app/main.html" %}
+
+{% block content %}
+    <div class="col s12 l9">
+        <div class="card">
+        {% include 'app/settings_members_tabs.html' %}
+            <div class="card-content">
+                <div class="row">
+                    <div class="col">
+                        <a class="dropdown-trigger perms-role-select btn"
+                           href="#" data-target="dropdown_roles">
+                            {{ cur_role.name }}
+                        </a>
+                        <ul id='dropdown_roles' class='dropdown-content'>
+                            {% for role in roles %}
+                                <li>
+                                    <a href="{% url 'settings_members_perms' role.id %}">
+                                        {{ role.name }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <form action="{% url 'settings_members_perms' cur_role.id %}" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col">
+                            <div class="switch">
+                                <label>
+                                    {{ form.is_teacher }}
+                                    <span class="lever"></span>
+                                    {{ form.is_teacher.label }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-flat" type="submit">Сохранить</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

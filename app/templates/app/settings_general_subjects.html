@@ -1,0 +1,56 @@
+{% extends "app/main.html" %}
+
+{% block content %}
+    <div class="col s12 l9">
+        <div class="card">
+            {% include 'app/settings_general_tabs.html' %}
+            <form action="{% url 'settings_general_subjects' %}" method="post">
+                {% csrf_token %}
+                <div class="card-content">
+                    <div class="row">
+                        <div class="input-field col s12 l6">
+                            {{ form.name }}
+                            {{ form.name.label_tag }}
+                            {{ form.name.errors }}
+                        </div>
+                        <div class="input-field col s12 l6">
+                            {{ form.symbol }}
+                            {{ form.symbol.label_tag }}
+                            {{ form.symbol.errors }}
+                        </div>
+                        <div class="input-field col s12 l3">
+                            {{ form.level_count }}
+                            {{ form.level_count.label_tag }}
+                            {{ form.level_count.errors }}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <button class="btn" type="submit">Добавить</button>
+                </div>
+            </form>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Обозначение</th>
+                            <th>Название</th>
+                            <th>Кол-во уровней</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for sub in subs %}
+                        <tr>
+                            <td>{{ sub.symbol }}</td>
+                            <td>{{ sub.name }}</td>
+                            <td>{{ sub.level_count }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

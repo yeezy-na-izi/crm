@@ -1,0 +1,82 @@
+{% extends "app/main.html" %}
+{% load static %}
+{% block content %}
+    <div class="col s12 l9">
+        <div class="card">
+            <div class="col s12 m6">
+                <div class="card-panel z-depth-1">
+                    <h6>Группа {{ group.name }}</h6>
+                    <p>Статус: {{ group.get_status_display }}</p>
+                    <p>Предмет: {{ group.subject }}</p>
+                    <p>Уровень: {{ group.level }}</p>
+                    <p>Вместимость: {{ group.capacity }}</p>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="card-panel z-depth-1">
+                    <a class="btn-floating btn-small right waves-effect waves-light"
+                        href="{% url 'learning_groups_add_schedule' group.pk %}">
+                        <i class="material-icons">add</i>
+                    </a>
+                    <h6>Расписание</h6>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Преподаватели</th>
+                                <th>День</th>
+                                <th>Время</th>
+                                <th>Даты</th>
+                                <th>Кол-во</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for sch in group.schedules.all %}
+                            <tr>
+                                <td>
+                                    {% for teacher in sch.teachers.all %}
+                                    <p>
+                                        <a href="{% url 'company_members_profile' teacher.id %}">
+                                            {{ teacher }}
+                                        </a>
+                                    </p>
+                                    {% endfor %}
+                                </td>
+                                <td>{{ sch.get_weekday_display }}</td>
+                                <td>{{ sch.time|date:"H:i" }}</td>
+                                <td>{{ sch.start_date|date:"d.m.Y" }} - {{ sch.get_end_date|date:"d.m.Y" }}</td>
+                                <td>{{ sch.count }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="card-panel z-depth-1">
+                    <a class="btn-floating btn-small right waves-effect waves-light"
+                        href="{% url 'learning_groups_add_student' group.pk %}">
+                        <i class="material-icons">add</i>
+                    </a>
+                    <h6>Ученики</h6>
+                    <table>
+                    <thead>
+                        <tr>
+                            <th>ФИО</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for student in group.students.all %}
+                        <tr>
+                            <td>
+                                {{ student }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

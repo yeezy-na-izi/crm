@@ -1,0 +1,13 @@
+{% load app_tags %}
+
+<ul class="tabs">
+    <li class="tab col s4">
+        <a class="{% active 'settings_members_status' %}" href="{% url 'settings_members_status' %}" target="_self">Статусы</a>
+    </li>
+    <li class="tab col s4">
+        <a class="{% active 'settings_members_roles' %}" href="{% url 'settings_members_roles' %}" target="_self">Роли</a>
+    </li>
+    <li class="tab col s4">
+        <a class="{% active 'settings_members_perms' %}" href="{% url 'settings_members_perms' %}" target="_self">Настройки ролей</a>
+    </li>
+</ul>

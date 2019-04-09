@@ -1,0 +1,42 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block header %}
+
+<nav>
+    <div class="nav-wrapper container">
+        <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large-only"><i class="material-icons">menu</i></a>
+        <a href="{% url 'index' %}" class="brand-logo">
+            CODDY CRM
+        </a>
+    </div>
+</nav>
+
+<ul id="slide-out" class="sidenav">
+    {% include 'app/side_menu.html' %}
+</ul>
+
+{% endblock header %}
+
+{% block main %}
+
+<div class="section">
+    <div class="row">
+
+        <div class="col l3 hide-on-med-and-down side-menu">
+            <ul class="collection">
+                {% include 'app/side_menu.html' %}
+            </ul>
+        </div>
+        {% block content %}
+        <div class="col s12 l9">
+            <div class="card">
+                <div class="card-content">
+                    Welcome to CRM!
+                </div>
+            </div>
+        </div>
+        {% endblock content %}
+    </div>
+</div>
+{% endblock main %}

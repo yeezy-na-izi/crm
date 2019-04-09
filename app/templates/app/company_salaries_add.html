@@ -1,0 +1,37 @@
+{% extends "app/main.html" %}
+
+{% block content %}
+    <div class="col s12 l9">
+        <div class="card">
+            <form action="{% url 'company_salaries_add' %}" method="post">
+                {% csrf_token %}
+                <div class="card-content">
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            {{ form.name }}
+                            {{ form.name.label_tag }}
+                            {{ form.name.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ form.duty }}
+                            {{ form.duty.label_tag }}
+                            {{ form.duty.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ form.salary }}
+                            {{ form.salary.label_tag }}
+                            {{ form.salary.errors }}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <button class="btn" type="submit">Добавить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

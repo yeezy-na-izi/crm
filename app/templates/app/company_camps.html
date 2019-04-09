@@ -1,0 +1,38 @@
+{% extends "app/main.html" %}
+
+{% block content %}
+    <div class="col s12 l9">
+        <div class="card">
+            <div class="card-content">
+                <div class="row">
+                    <a class="col btn right" href="{% url 'company_camps_add' %}">Добавить Лагерь</a>
+                    <h5 class="col">Лагеря</h5>
+                </div>
+                <table class="responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Название</th>
+                            <th>Адрес</th>
+                            <th>Количество участников</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for camp in camps %}
+                        <tr>
+                            <td>
+                                {{ camp.name }}
+                            </td>
+                            <td>
+                                {{ camp.address }}
+                            </td>
+                            <td>
+                                {{ camp.children_count }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends "app/main.html" %}
+
+{% block content %}
+    <div class="col s12 l9">
+        <div class="card">
+            <div class="card-content">
+                <div class="row">
+                    <a class="col btn right" href="{% url 'company_salaries_add' %}">Добавить Зарплату</a>
+                    <h5 class="col">Зарплаты</h5>
+                </div>
+                <table class="responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Имя</th>
+                            <th>Должность</th>
+                            <th>Зарплата</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for people in peoples %}
+                        <tr>
+                            <td>
+                                {{ people.name }}
+                            </td>
+                            <td>
+                                {{ people.duty }}
+                            </td>
+                            <td>
+                                {{ people.salary }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

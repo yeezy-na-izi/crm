@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* header, main, footer {
+    padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
+} */
+
+.side-menu .collapsible {
+    margin: 0;
+    box-shadow: none;
+}
+
+.side-menu a.collection-item {
+    color: inherit;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.card form .row:last-child {
+    margin-bottom: 0;
+}

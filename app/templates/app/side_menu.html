@@ -1,0 +1,56 @@
+{% load app_tags %}
+
+    <li><a class="collection-item" href="#">First Sidebar Link</a></li>
+    <ul class="collapsible collapsible-accordion">
+        <li class="{% active 'company' %}">
+            <div class="collapsible-header"><i class="material-icons">work</i>Компания</div>
+            <div class="collapsible-body no-padding">
+                <ul>
+                    <li><a class="collection-item {% active 'company_members' %}" href="{% url 'company_members' %}">Сотрудники</a></li>
+                </ul>
+                <ul>
+                    <li><a class="collection-item {% active 'company_schools' %}" href="{% url 'company_schools' %}">Филиалы</a></li>
+                </ul>
+                <ul>
+                    <li><a class="collection-item {% active 'company_camps' %}" href="{% url 'company_camps' %}">Лагеря</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="{% active 'learning' %}">
+            <div class="collapsible-header"><i class="material-icons">child_care</i>Обучение</div>
+            <div class="collapsible-body no-padding">
+                <ul>
+                    <li><a class="collection-item {% active 'learning_students' %}" href="{% url 'learning_students' %}">Ученики</a></li>
+                </ul>
+                <ul>
+                    <li><a class="collection-item {% active 'learning_groups' %}" href="{% url 'learning_groups' %}">Группы</a></li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">insert_invitation</i>Расписание</div>
+            <div class="collapsible-body no-padding">
+                <ul>
+                    <li><a class="collection-item" href="#">fsd</a></li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">attach_money</i>Финансы</div>
+            <div class="collapsible-body no-padding">
+                <ul>
+                    <li><a class="collection-item" {%active 'company_salaries'%} href="{% url 'company_salaries'%}">Зарплаты</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="{% active 'settings' %}">
+            <div class="collapsible-header"><i class="material-icons">settings</i>Настрoйки</div>
+            <div class="collapsible-body no-padding">
+                <ul>
+                    <li><a class="collection-item {% active 'settings_general' %}" href="{% url 'settings_general_subjects' %}">Основные</a></li>
+                    <li><a class="collection-item {% active 'settings_members' %}" href="{% url 'settings_members_status' %}">Сотрудники</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+

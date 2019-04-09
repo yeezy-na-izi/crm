@@ -1,0 +1,28 @@
+{% extends "app/main.html" %}
+
+{% block content %}
+    <div class="col s12 l9">
+        <div class="card">
+            <form action="{% url 'learning_groups_add_student' %}" method="post">
+                {% csrf_token %}
+                <div class="card-content">
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            {{ form.group }}
+                            {{ form.group.label_tag }}
+                            {{ form.group.errors }}
+                        </div>
+                        <div class="input-field col s12 m6">
+                            {{ form.students }}
+                            {{ form.students.label_tag }}
+                            {{ form.students.errors }}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <button class="btn" type="submit">Добавить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

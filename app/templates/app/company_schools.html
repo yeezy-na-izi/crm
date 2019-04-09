@@ -1,0 +1,54 @@
+{% extends "app/main.html" %}
+
+{% block content %}
+    <div class="col s12 l9">
+        <div class="card">
+            <div class="card-content">
+                <div class="row">
+                    <a class="col btn right" href="{% url 'company_schools_add' %}">Добавить филиал</a>
+                    <h5 class="col">Филиалы и Аудитории</h5>
+                </div>
+                <table class="responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Название</th>
+                            <th>Адрес</th>
+                            <th>Аудитория</th>
+                            <th>Вместимость</th>
+                            <th>Описание</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for school in schools %}
+                        <tr>
+                            <td>
+                                {{ school.name }}
+                            </td>
+                            <td>
+                                {{ school.address }}
+                            </td>
+                            <td>
+                                <a class="btn-floating btn-small waves-effect waves-light"
+                                    href="{% url 'company_schools_add_room' school.id %}">
+                                    <i class="material-icons">add</i>
+                                </a>
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        {% for room in school.room_set.all %}
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>{{ room.name }}</td>
+                                <td>{{ room.capacity }}</td>
+                                <td>{{ room.description }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

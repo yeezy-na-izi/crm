@@ -1,0 +1,87 @@
+{% extends "app/main.html" %}
+{% load static %}
+{% block content %}
+    <div class="col s12 l9">
+        <div class="card">
+            <div class="col s12 m8 l12">
+                <div class="card-panel grey lighten-5 z-depth-1">
+                    <div class="row valign-wrapper">
+                        <div class="col s2">
+                            <img src="{% static 'app/img/Nick.jpg' %}" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                        </div>
+                        <div class="col s10">
+                          <span class="black-text">
+                            <h6>{{ member.get_full_name }}</h6>
+                              <p>Роль: {{member.role}}</p>
+                            <p>Статус: {{member.status}}</p>
+                          </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m8 l4">
+                <div class="card-panel grey lighten-5 z-depth-1">
+                  <div class="row">
+                    <div class="col s12">
+                        <h6>Контакты</h6>
+                        <p>Email: {{member.email}}</p>
+                        <p>Телефон: {{member.cell_phone}}</p>
+                        <p>Skype: {{member.skype}}</p>
+                        <p>Социальные сети: {{member.social}}</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col s12 m8 l8">
+                <div class="card-panel grey lighten-5 z-depth-1">
+                  <div class="row">
+                    <div class="col s12">
+                        <h6>Информация о преподавателе</h6>
+                        <p>Работает с:&nbsp;25.02.2018</p>
+                        <p>Дисциплины:&nbsp;Python и машинное обучение, Боты на Python, Подготовка к ОГЭ по математике, Программирование на JavaScript, Программирование игр на Python</p>
+                        <p>По совместительству:&nbsp;Нет</p>
+                        <p>Уровни обучения:&nbsp;-1, -2, -3, -4, -5, -6, -7, -8</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col s12 m8 l12">
+                <h6 class="black-text text-darken-10" >Группы</h6>
+                <div class="card-panel grey lighten-5 z-depth-1">
+                  <div class="row valign-wrapper">
+                    <div class="col s12">
+                      <span class="black-text">
+                         <div class="card-tabs">
+                              <ul class="tabs tabs-fixed-width">
+                                <li class="tab grey lighten-4"><a  href="#test4">PGD1</a></li>
+                                <li class="tab grey lighten-4"><a  href="#test5">PGD2</a></li>
+                                <li class="tab grey lighten-4"><a  href="#test6">PGD3</a></li>
+                              </ul>
+                         </div>
+                          <div class="card-content grey lighten-4">
+                              <div id="test4">
+                                  <div class="card-tabs">
+                                      <ul class="tabs tabs-fixed-width">
+                                        <li class="tab grey lighten-4"><a  href="#test7">Гладков &nbsp; Н.Е</a></li>
+                                        <li class="tab grey lighten-4"><a  href="#test8">Белоус &nbsp; Ф.Е</a></li>
+                                        <li class="tab grey lighten-4"><a  href="#test9">Гусев &nbsp; И.Ф</a></li>
+                                      </ul>
+                                 </div>
+                                  <div class="card-content grey lighten-4">
+                                      <div id="test7">Лопатырь1</div>
+                                      <div id="test8">Лопатырь2</div>
+                                      <div id="test9">Лопатырь3</div>
+                                  </div>
+                              </div>
+                              <div id="test5">Test 2</div>
+                              <div id="test6">Test 3</div>
+                          </div>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

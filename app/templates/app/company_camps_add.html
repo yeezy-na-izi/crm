@@ -1,0 +1,37 @@
+{% extends "app/main.html" %}
+
+{% block content %}
+    <div class="col s12 l9">
+        <div class="card">
+            <form action="{% url 'company_camps_add' %}" method="post">
+                {% csrf_token %}
+                <div class="card-content">
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            {{ form.name }}
+                            {{ form.name.label_tag }}
+                            {{ form.name.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ form.address }}
+                            {{ form.address.label_tag }}
+                            {{ form.address.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ form.children_count }}
+                            {{ form.children_count.label_tag }}
+                            {{ form.children_count.errors }}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <button class="btn" type="submit">Добавить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

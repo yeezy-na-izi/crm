@@ -1,0 +1,78 @@
+{% extends "app/main.html" %}
+
+{% block content %}
+    <div class="col s12 l9">
+        <div class="card">
+            <form action="{% url 'learning_students_add' %}" method="post">
+                {% csrf_token %}
+                <div class="card-content">
+                    <div class="row">
+                        <div class="input-field col s12 m4">
+                            {{ form.surname }}
+                            {{ form.surname.label_tag }}
+                            {{ form.surname.errors }}
+                        </div>
+                        <div class="input-field col s12 m4">
+                            {{ form.name }}
+                            {{ form.name.label_tag }}
+                            {{ form.name.errors }}
+                        </div>
+                        <div class="input-field col s12 m4">
+                            {{ form.patronymic }}
+                            {{ form.patronymic.label_tag }}
+                            {{ form.patronymic.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            {{ form.email }}
+                            {{ form.email.label_tag }}
+                            {{ form.email.errors }}
+                        </div>
+                        <div class="input-field col s12 m6">
+                            {{ form.gender }}
+                            {{ form.gender.label_tag }}
+                            {{ form.gender.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12"><h6>Контактное лицо</h6></div>
+                        <div class="input-field col s12 m4">
+                            {{ form.cont_surname }}
+                            {{ form.cont_surname.label_tag }}
+                            {{ form.cont_surname.errors }}
+                        </div>
+                        <div class="input-field col s12 m4">
+                            {{ form.cont_name }}
+                            {{ form.cont_name.label_tag }}
+                            {{ form.cont_name.errors }}
+                        </div>
+                        <div class="input-field col s12 m4">
+                            {{ form.cont_patronymic }}
+                            {{ form.cont_patronymic.label_tag }}
+                            {{ form.cont_patronymic.errors }}
+                        </div>
+                        <div class="input-field col s12 m4">
+                            {{ form.cont_role }}
+                            {{ form.cont_role.label_tag }}
+                            {{ form.cont_role.errors }}
+                        </div>
+                        <div class="input-field col s12 m4">
+                            {{ form.cont_email }}
+                            {{ form.cont_email.label_tag }}
+                            {{ form.cont_email.errors }}
+                        </div>
+                        <div class="input-field col s12 m4">
+                            {{ form.cont_cell_phone }}
+                            {{ form.cont_cell_phone.label_tag }}
+                            {{ form.cont_cell_phone.errors }}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <button class="btn" type="submit">Добавить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>CRM</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS and JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'app/main.css' %}">
+    <script type="text/javascript" src="{% static 'app/scripts.js' %}"></script>
+</head>
+<body>
+    <!-- <div class="body-wrapper"> -->
+    <header>
+        {% block header %}
+        <nav>
+            <div class="nav-wrapper">
+                <!-- <div class="valign-wrapper"> -->
+                    <a style="display: flex" class="brand-logo">
+                        
+                        <!-- <img style="height: 36px; margin-right: 15px" src="{% static 'app/img/logo-coddy-blue.png' %}"/> -->
+                        <h5>CODDY CRM</h5>
+                        <!-- <img style="height: 36px; margin-left: 15px" src="{% static 'app/img/logo-coddy-blue.png' %}"/> -->
+                        
+                    </a>
+                <!-- </div> -->
+            </div>
+        </nav>
+        {% endblock header %}
+    </header>
+
+    <main>
+        {% block main %}
+        {% endblock main %}
+    </main>
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <h4>Footer</h4>
+            </div>
+        </div>
+    </footer>
+    <!-- </div> -->
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends "app/main.html" %}
+
+{% block content %}
+    <div class="col s12 l9">
+        <div class="card">
+            {% include 'app/settings_members_tabs.html' %}
+            <form action="{% url 'settings_members_status' %}" method="post">
+                {% csrf_token %}
+                <div class="card-content">
+                    <div class="row">
+                        <div class="input-field col s12 l6">
+                            {{ form.name }}
+                            <label for="{{ form.name.id_for_label }}">Название</label>
+                            {{ form.name.errors }}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <button class="btn" type="submit">Добавить</button>
+                </div>
+            </form>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Название</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for status in statuses %}
+                        <tr>
+                            <td>{{ status.name }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

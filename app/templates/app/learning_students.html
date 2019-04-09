@@ -1,0 +1,28 @@
+{% extends "app/main.html" %}
+
+{% block content %}
+    <div class="col s12 l9">
+        <a class="btn" href="{% url 'learning_students_add' %}">Добавить пользователя</a>
+        <div class="card">
+            <div class="card-content">
+                Ученики
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ФИО</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for student in students %}
+                        <tr>
+                            <td>
+                                {{ student.get_full_name }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

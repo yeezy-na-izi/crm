@@ -1,0 +1,15 @@
+{% load app_tags %}
+
+<!-- <div class="col s12 l9"> -->
+    <ul class="tabs">
+        <li class="tab col s4">
+            <a class="{% active 'settings_general_subjects' %}" href="{% url 'settings_general_subjects' %}" target="_self">Предметы</a>
+        </li>
+        <li class="tab col s4">
+            <a class="{% active 'settings_general_levels' %}" href="{% url 'settings_general_levels' %}" target="_self">Уровни</a>
+        </li>
+        <li class="tab col s4">
+            <a class="{% active 'settings_general_ages' %}" href="{% url 'settings_general_ages' %}" target="_self">Возраст</a>
+        </li>
+    </ul>
+<!-- </div> -->

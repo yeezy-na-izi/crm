@@ -1,0 +1,59 @@
+{% extends "app/main.html" %}
+
+{% block content %}
+    <div class="col s12 l9">
+        <div class="card">
+            <form action="{% url 'company_members_add' %}" method="post">
+                {% csrf_token %}
+                <div class="card-content">
+                    <div class="row">
+                        <div class="input-field col s12 m4">
+                            {{ form.role }}
+                            {{ form.role.label_tag }}
+                            {{ form.role.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m4">
+                            {{ form.surname }}
+                            {{ form.surname.label_tag }}
+                            {{ form.surname.errors }}
+                        </div>
+                        <div class="input-field col s12 m4">
+                            {{ form.name }}
+                            {{ form.name.label_tag }}
+                            {{ form.name.errors }}
+                        </div>
+                        <div class="input-field col s12 m4">
+                            {{ form.patronymic }}
+                            {{ form.patronymic.label_tag }}
+                            {{ form.patronymic.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            {{ form.email }}
+                            {{ form.email.label_tag }}
+                            {{ form.email.errors }}
+                        </div>
+                        <div class="input-field col s12 m6">
+                            {{ form.gender }}
+                            {{ form.gender.label_tag }}
+                            {{ form.gender.errors }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            {{ form.password }}
+                            {{ form.password.label_tag }}
+                            {{ form.password.errors }}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <button class="btn" type="submit">Добавить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

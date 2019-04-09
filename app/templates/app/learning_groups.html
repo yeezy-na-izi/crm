@@ -1,0 +1,44 @@
+{% extends "app/main.html" %}
+
+{% block content %}
+    <div class="col s12 l9">
+        <div class="card">
+            <div class="card-content">
+                <div class="row">
+                    <a class="col btn right" href="{% url 'learning_groups_add' %}">Добавить группу</a>
+                    <h5 class="col">Группы</h5>
+                </div>
+                <table class="responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Название</th>
+                            <th>Предмет</th>
+                            <th>Уровень</th>
+                            <th>Вместимость</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for group in groups %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'learning_groups_details' group.id %}">
+                                    {{ group.name }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ group.subject.name }}
+                            </td>
+                            <td>
+                                {{ group.level }}
+                            </td>
+                            <td>
+                                {{ group.capacity }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
